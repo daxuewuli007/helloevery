@@ -1,0 +1,462 @@
+
+
+{{ void(App.clientScript.registerCssFile(path~"/style/landingpage.css")) }}
+{{ void(App.clientScript.registerCssFile(path~"/style/book.css")) }}
+{{ void(App.clientScript.registerSeaJsFile(["header","cssprops", "juicer-min","jquery.navLight","jquery.lazyload", path~"/script/jquery.min.js"])) }}
+<html>
+<head >
+  <meta charset="UTF-8">
+  <script>
+var path = "{{App.staticUrl(path~'/images/')}}";
+  </script>
+</head>
+  <body style="width:100%;height:100%;">
+    {% macro itemer(this, path, product_id, procon2) %} 
+  {% set id = product_id %}
+  <div style="width:88%;height: 230px;background: #faf7ea;border: 4px solid #ffb505;" class="procon   {{procon2 ? ' procon2' : ''}}" target="_blank"  title="{{ this.getProductAttr(id, 'mainTitle')|e }}">
+        <div class="pic">
+            <a target="_blank" href="{{ this.getProductAttr(id, 'url')|e }}"><img class="book-shopimg" style="width: 88%;height: 45%;;" src="{{App.staticUrl(path~'/images/load_hold.jpg')}}" data-original="{{ this.getProductAttr(id, 'image', {width: 326, height: 229}) }}" alt="途风"></a>
+        </div>
+        <div class="pro-text" style="position: absolute;top: 101px;left: -1px;">
+            <a target="_blank"style='color:#434040;' href="{{ this.getProductAttr(id, 'url')|e }}"><h3 style="margin-left: -1px;line-height: 18px;overflow: hidden;height: 36px;">{{ this.getProductAttr(id, 'mainTitle') }}</h3></a>
+            <p style=" text-align:left;    margin: 5px 0 2px 30px;">产品编号: {{ product_id }}</p> 
+        </div>
+        <div class="price-row" style="bottom: 45px;
+        left: 33px;color:#010000;">{{ this.getProductAttr(id, 'price') }}<em style='font-size: 14px;
+    font-weight: bold;'>起</em></div>
+        <a target="_blank" class="model-source" style="" href="{{ this.getProductAttr(id, 'url')|e }}" >
+            立即抢购
+        </a>
+    </div>
+{% endmacro %}
+
+{% macro itemer2(this, path, product_id, procon2) %}
+{% set id = product_id %}
+<div class="model-fourshop-layout"  target="_blank"  title="{{ this.getProductAttr(id, 'mainTitle')|e }}">
+        <div class="model-fourshop-img">
+            <a target="_blank" href="{{ this.getProductAttr(id, 'url')|e }}"><img class='model-img'  src="{{ this.getProductAttr(id, 'image', {width: 326, height: 229}) }}" data-original="{{ this.getProductAttr(id, 'image', {width: 326, height: 229}) }}"  alt="途风"></a>
+        </div>
+        <div class="pro-text" style="    width: 86%;
+    position: absolute;
+    top: 129px;
+    left: 15px;">
+            <a target="_blank"style='color:#434040;text-decoration:none;'  href="{{ this.getProductAttr(id, 'url')|e }}"><h3 style="margin-left: -1px;line-height: 18px;overflow: hidden;height: 36px;font-weight: 600;">{{ this.getProductAttr(id, 'mainTitle') }}</h3></a>
+            <p style=" text-align:left;  ">产品编号: {{ product_id }}</p> 
+        </div>
+        <div style="position: absolute;
+        top: 190px;color:#010000;text-decoration: none;left: 16px;" class="model-fourshop-three">{{ this.getProductAttr(id, 'price') }}<em  style="font-weight: bold;">起</em></div>
+        <a target="_blank" style=' text-decoration: none;' class="model-fourshop-last" href="{{ this.getProductAttr(id, 'url')|e }}" >
+            立即抢购
+        </a> 
+
+    </div>
+{% endmacro %}
+
+
+{% import _self as maker %}
+             <img class="activity-size" src="{{App.staticUrl(path~'/images/activity.png')}}" alt="" style="position: absolute;">
+            
+             <div class='back' style='position:absolute;z-index:100;
+    top: 20px;'>
+               <img src="{{App.staticUrl(path~'/images/book-back.png')}}" alt="">
+             </div>  
+           
+          <div class="size">
+            <div class="b-size"> <img id="close" src="{{App.staticUrl(path~'/images/close.png')}}" alt=""></div>
+          </div>
+ 
+                <img class="arrow-left" src="{{App.staticUrl(path~'/images/arrowleft.png')}}" alt="">
+              <img class="arrow-right" src="{{App.staticUrl(path~'/images/arrowright.png')}}" alt="">    
+                
+          <div class="book-title"  >           
+             <img id="i1" src="{{App.staticUrl(path~'/images/threetitle.png')}}" alt=""  >
+             <img id="i2" src="{{App.staticUrl(path~'/images/fourtitle.png')}}" alt=""  style=" 
+            left: -12px;
+            ">
+             <img id="i3" src="{{App.staticUrl(path~'/images/fivetitle.png')}}" alt=""   style=" 
+            left: -24px;
+            ">
+             <img id="i4" src="{{App.staticUrl(path~'/images/freedomtitle.png')}}" alt=""  style="
+            left: -36px;
+            ">
+            </div>
+            <!-- <div class="month book-month"  style='position:absolute;' >            
+                <img id="m1"  src="{{App.staticUrl(path~'/images/three.png')}}" style="position: absolute;
+              left: 348px;
+                  top: 138px;" alt="">
+                  <img id="m2" src="{{App.staticUrl(path~'/images/four.png')}}" style="position: absolute;
+              left: 348px;
+                  top: 548px;" alt="">
+                  <img id="m3" src="{{App.staticUrl(path~'/images/five.png')}}" style=" position: absolute;
+              left: 649px;
+              top: 138px;" alt="">
+                  <img id="m4" src="{{App.staticUrl(path~'/images/freedom.png')}}" style=" position: absolute;
+              left: 649px;
+                  top: 548px;" alt="">
+                </div> -->
+       
+    
+               
+              <!-- src="{{App.staticUrl(path~'/images/bg_left2.png')}}" -->
+              
+              <div id="flipbook"  style="    top: 45px;
+    position: relative;
+    width: 1000px;
+    height: 610px;" >             
+                    <div id="month_right" class="right1">   
+                     <!-- // <img src="{{App.staticUrl(path~'/images/bg_right1.png')}}" alt=""> -->
+                      <div class="month">
+                        <div id="m1"></div>
+                        <div id="m2"></div>
+                        <div id="m3"></div>
+                        <div id="m4"></div>
+                  
+                    </div>
+                     
+                    </div>
+
+                    <div class="left2">
+                        <!-- <img src="{{App.staticUrl(path~'/images/bg_left2.png')}}" alt=""> -->
+                       
+                    </div>                   
+                    <div class="right2">
+                          <div class="book-shop-show">
+                                  <img  class='book-font right-img2' src="{{App.staticUrl(path~'/images/three-detail1.png')}}" alt="">                                        
+                          </div>
+                         <div class="arrow-right"><img src="{{App.staticUrl(path~'/images/arrowright.png')}}" alt=""></div>
+                          
+
+                          <div class="shopping1" style="width:100%;height: 75%;">
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '47100') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '53388') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '53649') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '55989') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                          </div>
+
+
+
+
+                          <div class="shopping2 hide" style="width:100%;height: 75%;">
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '50172') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '50103') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '50148') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '81303') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                          </div>
+
+                          <div class="shopping3 hide" style="width:100%;height: 75%;">
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '47064') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '56898') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '46728') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '48402') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                          </div>
+                         
+                          <div class="book-foot"> 
+                             <a class="book-foot-first">1</a>
+                             <a class="book-foot-two">2</a>
+                             <a class="book-foot-three">3</a> 
+                            <div style="clear:both;"></div>
+                         </div>
+
+                    </div>             
+
+                    <div class="left4">
+                      
+                       
+                    </div>                   
+                    <div class="right4">
+                          <div class="book-shop-show">
+                                  <img class='book-font right-img4' src="{{App.staticUrl(path~'/images/four-detail1.png')}}" alt="">                                        
+                          </div>
+                          <div class="four-shopping1" style="width:100%;height:75%;">
+                                   <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '53880') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '56496') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '57000') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '57033') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                          </div>
+                           <div class="four-shopping2 hide" style="width:100%;height:75%;">
+                                   <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '53775') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '52035') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              
+                        </div>
+                         
+                          <div class="book-foot4"> 
+                             <a class="book-foot-first">1</a>
+                             <a class="book-foot-two">2</a>
+                             
+                            <div style="clear:both;"></div>
+                         </div>
+                    </div> 
+                   
+
+
+                    <div class="left5">
+                        <!-- <img src="{{App.staticUrl(path~'/images/bg_left2.png')}}" alt=""> -->
+                        
+                    </div>                   
+                    <div class="right5">
+                          <div class="book-shop-show">
+                                  <img class='book-font right-img5' src="{{App.staticUrl(path~'/images/five-detail1.png')}}" alt="">                                        
+                          </div>
+
+                          <div class="five-shopping1" style="width:100%;height:75%;">
+                                <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '47100') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '55821') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '56907') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '57048') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                        </div>
+
+                        <div class="five-shopping2 hide" style="width:100%;height:75%;">
+                                <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '46578') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '46665') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '47292') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '48387') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                        </div>
+
+
+                        <div class="five-shopping3 hide" style="width:100%;height:75%;">
+                                <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '45474') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '52068') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                              <div class="book-shop" >                           
+                                     
+                                          <div style='width:42%;display:block;float:left;' >
+                                          {{ maker.itemer2(this, path, '53775') }}
+                                          
+                                          </div>
+                                          <div  style='width:42%;display:block;float:left;'>                                      
+                                          {{ maker.itemer2(this, path, '53871') }}
+                                               
+                                          </div>
+                                                                      
+                                          <div style='clear:both;'></div>
+                              </div>
+                        </div>
+                        <div class="book-foot5"> 
+                             <a class="book-foot-first">1</a>
+                             <a class="book-foot-two">2</a>
+                             <a class="book-foot-three">3</a>
+                            <div style="clear:both;"></div>
+                         </div>
+                          
+                    </div> 
+
+
+
+                    <div class="left6">
+                        <!-- <img src="{{App.staticUrl(path~'/images/bg_left2.png')}}" alt=""> -->
+                        
+                    </div>                   
+                    <div class="right6">
+                          <div class="book-shop-show">
+                                  <img class='book-font' src="{{App.staticUrl(path~'/images/freedom-detail.png')}}" alt="">                                        
+                          </div>
+                          <div class="book-shop" >                           
+                                 
+                                      <div style='width:42%;display:block;float:left;' >
+                                      {{ maker.itemer2(this, path, '46773') }}
+                                      
+                                      </div>
+                                      <div  style='width:42%;display:block;float:left;'>                                      
+                                      {{ maker.itemer2(this, path, '46791') }}
+                                           
+                                      </div>
+                                                                  
+                                      <div style='clear:both;'></div>
+                          </div>
+                          <div class="book-shop" >                           
+                                 
+                                      <div style='width:42%;display:block;float:left;' >
+                                      {{ maker.itemer2(this, path, '46845') }}
+                                      
+                                      </div>
+                                      <div  style='width:42%;display:block;float:left;'>                                      
+                                      {{ maker.itemer2(this, path, '47151') }}
+                                           
+                                      </div>
+                                                                  
+                                      <div style='clear:both;'></div>
+                          </div>
+
+                    </div> 
+                   
+  
+            </div>
+ 
+
+
+
+  <script src="{{path~'/script/jquery.min.js'}}"></script>
+ <script src="{{path~'/script/turn.js'}}"></script>
+
+ 
+  <script src="{{path~'/script/landingpage.js'}}"></script>
+  <script type="text/javascript">
+    $("#flipbook").turn({
+          width:1000,
+          height:610,
+          gradients: false,
+          autoCenter: false         
+          
+      });
+</script>
+
+
+
+  </body> 
+</html>
+ 
+
+
